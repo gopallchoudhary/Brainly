@@ -4,12 +4,14 @@ import './index.css'
 import App from './App.tsx'
 import ContentContextProvider from './context/ContentContext.tsx'
 import { BrowserRouter } from 'react-router-dom'
+import Cursor from './components/Cursor.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
       <ContentContextProvider>
         <App />
+        <Cursor/>
       </ContentContextProvider>
     </BrowserRouter>
   </StrictMode>,

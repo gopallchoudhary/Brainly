@@ -31,11 +31,16 @@ const sizeStyles = {
 
 
 const Button:React.FC<ButtonProps> = (props) => {
+    const hoverStyles = {
+        primary: "hover:bg-purple-700",
+        secondary: "hover:bg-purple-400 hover:text-white",
+        add: "hover:bg-blue-800",
+    } as const
     return (
         <button
             onClick={props.onClick}
             className={`rounded-md font-normal text-base ${variantStyles[props.variant]
-                } ${sizeStyles[props.size]} ${props.fullWidth ? ' w-full' : 'w-fit'}`}
+                } ${sizeStyles[props.size]} ${props.fullWidth ? ' w-full' : 'w-fit'} transition-all duration-150 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 ${hoverStyles[props.variant] ?? ''}`}
         >
             <div className="flex items-center gap-2">
                 {props.startIcon} <p className={`${props.fullWidth ? 'text-center mx-auto ' : ''}`}>{props.text}</p> {props.endIcon}
